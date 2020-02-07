@@ -108,4 +108,3 @@ JNIEXPORT jstring JNICALL Java_com_finalexample_test2_MainActivity_aescoder
 
 ![image-20200201210410596](img/jni/image-20200201210410596.png)
 
-## Hey

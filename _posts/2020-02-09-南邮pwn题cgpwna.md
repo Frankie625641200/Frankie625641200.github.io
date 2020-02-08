@@ -23,7 +23,7 @@ tags:
 
 ### 1、读题并下载文件
 
-![image-20200209033327072](https://frankie625641200.github.io/img/image-20200209033327072.png)
+![image-20200209033327072](https://frankie625641200.github.io/img/cgpwna/image-20200209033327072.png)
 
 这道题读出的信息，有IP：182.254.217.142    PORT：10001
 
@@ -45,7 +45,7 @@ cat /home/pwn/flag
 
 首先就是查壳并确认是32还是64位的程序：
 
-![image-20200209034119718](https://frankie625641200.github.io/img/image-20200209034119718.png)
+![image-20200209034119718](https://frankie625641200.github.io/img/cgpwna/image-20200209034119718.png)
 
 确认是32位程序，并且没有混淆函数
 
@@ -57,29 +57,29 @@ cat /home/pwn/flag
 
 使用IDA7.0查看程序，并获取程序详情，然后直接看使用的点
 
-![image-20200209035437047](https://frankie625641200.github.io/img/image-20200209035437047.png)
+![image-20200209035437047](https://frankie625641200.github.io/img/cgpwna/image-20200209035437047.png)
 
 使用F5查看几个关键函数的伪代码：
 
 pwnme()：
 
-![image-20200209035624242](https://frankie625641200.github.io/img/image-20200209035624242.png)
+![image-20200209035624242](https://frankie625641200.github.io/img/cgpwna/image-20200209035624242.png)
 
 menu()：
 
-![image-20200209035642736](https://frankie625641200.github.io/img/image-20200209035642736.png)
+![image-20200209035642736](https://frankie625641200.github.io/img/cgpwna/image-20200209035642736.png)
 
 message()：
 
-![image-20200209035727194](https://frankie625641200.github.io/img/image-20200209035727194.png)
+![image-20200209035727194](https://frankie625641200.github.io/img/cgpwna/image-20200209035727194.png)
 
 main：
 
-![image-20200209035758924](https://frankie625641200.github.io/img/image-20200209035758924.png)
+![image-20200209035758924](https://frankie625641200.github.io/img/cgpwna/image-20200209035758924.png)
 
 然后看程序流程
 
-![image-20200209040333317](https://frankie625641200.github.io/img/image-20200209040333317.png)
+![image-20200209040333317](https://frankie625641200.github.io/img/cgpwna/image-20200209040333317.png)
 
 可以分析出判断条件是choice为49时候程序退出，退出前会输出“bye”，否则就会跳入message()函数中
 
@@ -125,13 +125,13 @@ main：
 [0x08048420]>VV
 ```
 
-![image-20200209034644039](https://frankie625641200.github.io/img/image-20200209034644039.png)
+![image-20200209034644039](https://frankie625641200.github.io/img/cgpwna/image-20200209034644039.png)
 
 这样可以方便在linux使用gdb调试
 
 ### 4、执行程序：
 
-![image-20200209041303545](https://frankie625641200.github.io/img/image-20200209041303545.png)
+![image-20200209041303545](https://frankie625641200.github.io/img/cgpwna/image-20200209041303545.png)
 
 可以看到，程序执行流程
 
@@ -186,7 +186,7 @@ Breakpoint 1 at 0x80485dd
 pwndbg> r
 ```
 
-![image-20200209042103341](https://frankie625641200.github.io/img/image-20200209042103341.png)
+![image-20200209042103341](https://frankie625641200.github.io/img/cgpwna/image-20200209042103341.png)
 
 可以看到输入的数据长度n是**0x3c（就是60）**
 
@@ -194,7 +194,7 @@ pwndbg> r
 
 这时候直接输入60个‘a’
 
-![image-20200209042307647](https://frankie625641200.github.io/img/image-20200209042307647.png)
+![image-20200209042307647](https://frankie625641200.github.io/img/cgpwna/image-20200209042307647.png)
 
 看到这个就知道可以输入多少个a了
 
@@ -202,7 +202,7 @@ pwndbg> r
 
 接下来就是继续执行看到第二个get：
 
-![image-20200209042412455](https://frankie625641200.github.io/img/image-20200209042412455.png)
+![image-20200209042412455](https://frankie625641200.github.io/img/cgpwna/image-20200209042412455.png)
 
 n长度变化了，也就是说明第一次执行的溢出后干扰了第二次输入的长度n
 
@@ -214,13 +214,13 @@ n长度变化了，也就是说明第一次执行的溢出后干扰了第二次�
 
 这里长度是aaaa，按道理不会输入那么长：
 
-![image-20200209042820177](https://frankie625641200.github.io/img/image-20200209042820177.png)
+![image-20200209042820177](https://frankie625641200.github.io/img/cgpwna/image-20200209042820177.png)
 
 然后继续走，看看call的点和ret的点的异常：
 
 发现异常点在ret以后跳跃的值
 
-![image-20200209042908469](https://frankie625641200.github.io/img/image-20200209042908469.png)
+![image-20200209042908469](https://frankie625641200.github.io/img/cgpwna/image-20200209042908469.png)
 
 而执行了这个段是在**0xffffd26c**
 
@@ -232,13 +232,13 @@ n长度变化了，也就是说明第一次执行的溢出后干扰了第二次�
 
 可见完整是高地址低地址压向高地址
 
-![image-20200209043327494](https://frankie625641200.github.io/img/image-20200209043327494.png)
+![image-20200209043327494](https://frankie625641200.github.io/img/cgpwna/image-20200209043327494.png)
 
 寻关键地址，首先选中pwnme()函数的起始地址：
 
-![image-20200209035624242](https://frankie625641200.github.io/img/image-20200209035624242.png)
+![image-20200209035624242](https://frankie625641200.github.io/img/cgpwna/image-20200209035624242.png)
 
-![image-20200209034644039](https://frankie625641200.github.io/img/image-20200209034644039.png)
+![image-20200209034644039](https://frankie625641200.github.io/img/cgpwna/image-20200209034644039.png)
 
 获得地址为：**0x804851d** 
 
@@ -271,7 +271,7 @@ k.interactive()
 
 **然后使用fin进入程序点，使用ni跟踪执行**
 
-![image-20200209044856978](https://frankie625641200.github.io/img/image-20200209044856978.png)
+![image-20200209044856978](https://frankie625641200.github.io/img/cgpwna/image-20200209044856978.png)
 
 成功进入了pwnme()函数
 
@@ -301,19 +301,19 @@ k.sendline('1'*offset+p32(0x804851d))
 k.interactive()
 ```
 
-![image-20200209045340649](https://frankie625641200.github.io/img/image-20200209045340649.png)
+![image-20200209045340649](https://frankie625641200.github.io/img/cgpwna/image-20200209045340649.png)
 
 然后回车后用fin不断执行跳跃进入源程序
 
-![image-20200209045706741](https://frankie625641200.github.io/img/image-20200209045706741.png)
+![image-20200209045706741](https://frankie625641200.github.io/img/cgpwna/image-20200209045706741.png)
 
 进入到pwnme函数看到system函数：
 
-![image-20200209045748143](https://frankie625641200.github.io/img/image-20200209045748143.png)
+![image-20200209045748143](https://frankie625641200.github.io/img/cgpwna/image-20200209045748143.png)
 
 查看system函数的地方怎么输出的echo hello
 
-![image-20200209045859057](https://frankie625641200.github.io/img/image-20200209045859057.png)
+![image-20200209045859057](https://frankie625641200.github.io/img/cgpwna/image-20200209045859057.png)
 
 这里看到，system是调用了esp寄存器
 
@@ -331,7 +331,7 @@ k.interactive()
 
 我可以让传入的esp改的话是必须在不断调试下发现，竟然在输入的函数后面，而调试过程就是这样的：
 
-![image-20200209050510613](https://frankie625641200.github.io/img/image-20200209050510613.png)
+![image-20200209050510613](https://frankie625641200.github.io/img/cgpwna/image-20200209050510613.png)
 
 然后确定位置是**0xffac7c70**开始，然后就是3的个数竟然是**100**，因此直接在后面拼接第二次输入的地方，其中用**\x00**就是截断执行数据
 
@@ -361,7 +361,7 @@ k.interactive()
 
 执行结果为：
 
-![image-20200209051644873](https://frankie625641200.github.io/img/image-20200209051644873.png)
+![image-20200209051644873](https://frankie625641200.github.io/img/cgpwna/image-20200209051644873.png)
 
 竟然直接getshell了
 
@@ -386,4 +386,4 @@ k.sendline('1'*offset+p32(0x804852a)+p32(0x804a080))
 k.interactive()
 ```
 
-![image-20200209052024648](https://frankie625641200.github.io/img/image-20200209052024648.png)
+![image-20200209052024648](https://frankie625641200.github.io/img/cgpwna/image-20200209052024648.png)

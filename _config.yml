@@ -64,7 +64,7 @@ gitalk:
   enable: true    #是否开启Gitalk评论
   clientID: 4131c9c2f561b61b19dd                            #生成的clientID
   clientSecret: aedf962b4399ba80895d105c12445405576b8aed    #生成的clientSecret
-  repo: frankie625641200.github.io    #仓库名称
+  repo: blog_kexiaohei    #仓库名称
   owner: frankie625641200    #github用户名
   admin: frankie625641200
   distractionFreeMode: true #是否启用类似FB的阴影遮罩

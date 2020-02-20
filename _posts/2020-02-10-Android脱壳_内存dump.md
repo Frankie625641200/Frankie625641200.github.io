@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      安卓逆向_脱apk腾讯壳
-subtitle:   安卓逆向破解——脱老版本腾讯壳之反调试内存dump大法
+subtitle:   安卓逆向破解——脱腾讯壳之反调试内存dump大法
 date:       2020-02-10
 author:     BY kexiaohei
 header-img: img/Android.jpg

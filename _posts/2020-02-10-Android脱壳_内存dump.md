@@ -1,7 +1,11 @@
 ---
 layout:     post
 title:      安卓逆向_脱apk腾讯壳
+<<<<<<< HEAD
 subtitle:   安卓逆向破解——脱腾讯壳之反调试内存dump大法
+=======
+subtitle:   安卓逆向破解——脱老版本腾讯壳之反调试内存dump大法
+>>>>>>> parent of c1dcc29... 1
 date:       2020-02-10
 author:     BY kexiaohei
 header-img: img/Android.jpg
@@ -11,7 +15,10 @@ tags:
     - 腾讯壳
     - 反调试
 ---
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of c1dcc29... 1
 # 腾讯加固壳之动态脱壳系列
 
 ## 1、分析so壳

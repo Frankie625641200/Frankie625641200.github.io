@@ -7,9 +7,9 @@ author:     BY kexiaohei
 header-img: img/Android.jpg
 catalog: true
 tags:
-    - UPX
-    - ESP定律
-    - x86脱壳
+    - frida
+    - android hook
+    - 工具
 ---
 # ANACONDA+frida
 

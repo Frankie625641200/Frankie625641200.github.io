@@ -17,7 +17,7 @@ tags:
 
 ## 1、查壳
 
-![image-20200116150954040](PeCompact%E8%84%B1%E5%A3%B3%E4%B9%8B%E8%B0%9C%E4%B9%8B%E8%84%B1%E5%A3%B3.assets/image-20200116150954040.png)
+![image-20200116150954040](http:frankie625641200.github.io/img/PeCompact/image-20200116150954040.png)
 
 ## 2、脱壳
 

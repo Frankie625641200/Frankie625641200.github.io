@@ -402,7 +402,7 @@ pre code {
 }
 .navbar-custom .navbar-brand {
   font-weight: 800;
-  color: white;
+  color:rgb(98, 0, 255);;
   height: 56px;
   line-height: 25px;
 }
@@ -428,7 +428,7 @@ pre code {
     font-size: 20px;
   }
   .navbar-custom .navbar-brand {
-    color: white;
+    color:rgb(98, 0, 255);;
     padding: 20px;
     line-height: 20px;
   }

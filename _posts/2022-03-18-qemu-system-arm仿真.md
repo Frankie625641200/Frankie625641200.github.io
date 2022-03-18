@@ -45,7 +45,7 @@ https://people.debian.org/~aurel32/qemu/armhf/
 
 从“踩坑记”博文中可以看到，如下图该图片，而利用parrot系统的问题，就是连（qume）也不会进去，所以博文中写出的照片是存在错误的理解，可能是windows系统下的特殊性，因此，parrot系统根据该文提到的“踩坑”并未相符。此外，u-boot并未提到相关的作用以及其意义是什么，只是仿真的启动。
 
-![img](qemu_system_arm.assets/webp.webp)
+![img](http:frankie625641200.github.io/img/qemu_system_arm.assets/webp.webp)
 
 
 

@@ -57,7 +57,7 @@ qemu-img resize debian_wheezy_armhf_standard.qcow2 32G
 sudo qemu-system-arm -M vexpress-a9 -kernel vmlinuz-3.2.0-4-vexpress -initrd initrd.img-3.2.0-4-vexpress -drive if=sd,file=debian_wheezy_armhf_standard.qcow2 -append "root=/dev/mmcblk0p2 console=ttyAMA0" -net nic -net tap,ifname=tap0,script=no,downscript=no -nographic
 ```
 
-![image-20220104150531277](qemu_system_arm.assets/image-20220104150531277.png)
+![image-20220104150531277](http:frankie625641200.github.io/img/qemu_system_arm.assets/image-20220104150531277.png)
 
 
 
@@ -76,7 +76,7 @@ ifconfig eth0 10.10.10.2/24 up
 sudo scp -r test_main_MASTER  root@10.10.10.2:/root/
 ```
 
-![image-20220104151302217](qemu_system_arm.assets/image-20220104151302217.png)
+![image-20220104151302217](http:frankie625641200.github.io/img/qemu_system_arm.assets/image-20220104151302217.png)
 
 #### 4、调试
 
@@ -130,4 +130,4 @@ root@debian-armhf:~# ifconfig eth0 10.10.10.2/24 up
 （gdb）c
 ```
 
-![image-20220105135113000](qemu_system_arm.assets/image-20220105135113000.png)
+![image-20220105135113000](http:frankie625641200.github.io/img/qemu_system_arm.assets/image-20220105135113000.png)
